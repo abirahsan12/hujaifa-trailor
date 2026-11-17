@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>হুজাইফা পাঞ্জাবী টেইলার্স</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#141d2a;--bg2:#1f2d3f;--panel:#243548;--panel2:#2b3f56;--ink:#eef3f8;--muted:#9fb0c3;--or:#f5a524;--or2:#e8741c;--line:rgba(255,255,255,.08);--top:rgba(20,29,42,.85);--glow:#2a3f57;--ic:#15212f;--ok:#2ecc71;--bad:#ff6b6b;--shadow:0 10px 28px rgba(0,0,0,.3)}
+*{box-sizing:border-box;scrollbar-width:thin}
+body{margin:0;min-height:100vh;font-family:"Noto Sans Bengali",system-ui,sans-serif;color:var(--ink);background:radial-gradient(1100px 600px at 10% -10%,var(--glow),transparent 60%),var(--bg);background-color:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+[hidden]{display:none!important}
+button,.link-btn{font:inherit;cursor:pointer;border:0;border-radius:12px;padding:10px 16px;color:#fff;background:linear-gradient(135deg,var(--or),var(--or2));box-shadow:0 6px 16px rgba(232,116,28,.28);font-weight:600;transition:transform .15s,filter .15s;text-decoration:none;display:inline-block}
+button:hover{transform:translateY(-1px);filter:brightness(1.05)}
+button:active{transform:scale(.98)}
+button.sec{background:var(--panel2);color:var(--ink);box-shadow:none;border:1px solid var(--line)}
+button.danger{background:linear-gradient(135deg,#ff7675,#d63031)}
+button.ghost{background:none;box-shadow:none;color:var(--muted);border:1px solid var(--line)}
+button.sm{padding:6px 11px;font-size:.82rem;border-radius:10px}
+.link-btn{background:linear-gradient(135deg,#25d366,#128c7e);box-shadow:0 6px 16px rgba(37,211,102,.25)}
+input,select,textarea{width:100%;font:inherit;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--panel2);color:var(--ink);transition:border-color .15s,box-shadow .15s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--or);box-shadow:0 0 0 3px rgba(245,165,36,.2)}
+input[readonly]{color:var(--or);font-weight:700;background:var(--bg2)}
+input.mon{width:auto}
+option{background:var(--panel);color:var(--ink)}
+::placeholder{color:var(--muted);opacity:.7}
+label{display:grid;gap:5px;font-size:.84rem;font-weight:600;color:var(--muted)}
+h2,h3{margin:0}
+.top{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 16px;background:var(--top);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{display:flex;gap:12px;align-items:center;min-width:0}
+.logo{width:50px;height:50px;border-radius:50%;background:#fff;border:2px solid var(--or);display:grid;place-items:center;overflow:hidden;flex:0 0 auto;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+.logo img{width:100%;height:100%;object-fit:contain}
+.logo svg{width:58%;height:58%}
+.bn{min-width:0}
+.bn .big{display:block;font-size:1.5rem;font-weight:700;line-height:1.1}
+.bn .sub{display:block;font-size:.8rem;color:var(--or);font-weight:600}
+.bn .addr{display:block;font-size:.84rem;color:var(--ink);opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#sync{display:inline-block;margin-top:3px;font-size:.52rem;font-weight:600;color:#8fd9ad;background:rgba(46,204,113,.12);border:1px solid rgba(46,204,113,.3);padding:1px 7px;border-radius:99px;line-height:1.4}
+.homebtn{width:40px;height:40px;border-radius:12px;background:var(--panel2);border:1px solid var(--line);box-shadow:none;padding:0;display:grid;place-items:center;color:var(--ink);font-size:1.2rem;flex:0 0 auto}
+main{max-width:980px;margin:0 auto;padding:14px 16px 100px}
+.page-h{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0 16px}
+.page-h h2{font-size:1.25rem}
+.crumb{display:flex;align-items:center;gap:10px}
+.card{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow);margin-bottom:14px}
+.card h3{font-size:1rem;margin-bottom:10px;color:var(--or)}
+.grid{display:grid;gap:12px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:14px}
+.kpi{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:var(--shadow)}
+.kpi small{display:block;color:var(--muted);font-size:.8rem}
+.kpi b{font-size:1.25rem}
+.kpi.warn b{color:var(--bad)}
+.kpi.ok b{color:var(--ok)}
+.quick{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.menu{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:6px 0 18px}
+.menu button{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:20px;padding:16px 4px 14px;box-shadow:var(--shadow);color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:10px;transition:transform .2s,border-color .2s}
+.menu button:hover{transform:translateY(-3px);border-color:var(--c)}
+.menu .ic{width:72px;height:72px;border-radius:50%;background:var(--ic);border:2.5px solid var(--c);display:grid;place-items:center;color:var(--c);box-shadow:0 0 0 5px color-mix(in srgb,var(--c) 14%,transparent)}
+.menu .ic svg{width:32px;height:32px}
+.menu span{font-weight:700;font-size:.92rem}
+.menu [data-go=accounts]{order:1}
+.menu [data-go=settings]{order:2}
+.tool{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.tool input{flex:1;min-width:180px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.chip{background:var(--panel2);color:var(--muted);border:1px solid var(--line);box-shadow:none;padding:6px 12px;border-radius:99px;font-size:.82rem}
+.chip.on{background:var(--or);color:#fff;border-color:transparent}
+.row{display:flex;align-items:center;gap:12px;background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:16px;padding:12px 14px;margin-bottom:10px;box-shadow:0 4px 12px rgba(0,0,0,.15);cursor:pointer;transition:transform .15s,border-color .15s}
+.row:hover{transform:translateX(3px);border-color:rgba(245,165,36,.4)}
+.row .main{flex:1;min-width:0}
+.row .main b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .main small{display:block;color:var(--muted);font-size:.82rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .end{text-align:right;white-space:nowrap;display:grid;gap:4px;justify-items:end}
+.av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;flex:0 0 auto;font-size:1rem}
+.badge{display:inline-block;font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:99px;white-space:nowrap}
+.b-pending{background:rgba(245,165,36,.18);color:#f5a524}
+.b-cut{background:rgba(52,152,219,.2);color:#5dade2}
+.b-ready{background:rgba(155,89,182,.2);color:#c39bd3}
+.b-done{background:rgba(46,204,113,.2);color:#2ecc71}
+.b-new{background:rgba(149,165,166,.2);color:#bdc3c7}
+.amt-in{color:var(--ok);font-weight:700}
+.amt-out{color:#ff7675;font-weight:700}
+.due{color:var(--bad);font-weight:700}
+.paid{color:var(--ok);font-weight:700}
+.muted{color:var(--muted)}
+.empty{text-align:center;color:var(--muted);padding:30px 10px;border:1px dashed var(--line);border-radius:16px}
+.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px 14px}
+.form .full{grid-column:1/-1}
+.form-actions{grid-column:1/-1;display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;padding-top:6px}
+.meas{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.kv{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}
+.kv:last-child{border:0}
+.kv span{color:var(--muted)}
+.pay{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}
+.pay:last-child{border:0}
+.bar-row{display:grid;grid-template-columns:minmax(110px,1.1fr) 2fr auto;gap:10px;align-items:center;padding:7px 0;font-size:.9rem}
+.track{height:10px;background:var(--line);border-radius:99px;overflow:hidden}
+.track i{display:block;height:100%;border-radius:99px}
+.track i.income{background:linear-gradient(90deg,#2ecc71,#27ae60)}
+.track i.expense{background:linear-gradient(90deg,#ff7675,#e74c3c)}
+.sumc{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:14px}
+.sc{border-radius:18px;padding:16px;color:#fff;box-shadow:var(--shadow)}
+.sc small{display:block;opacity:.9;font-size:.82rem}
+.sc b{font-size:1.4rem}
+.sc.inc{background:linear-gradient(135deg,#27ae60,#1e8449)}
+.sc.exp{background:linear-gradient(135deg,#e74c3c,#c0392b)}
+.sc.pos{background:linear-gradient(135deg,#2980b9,#1f618d)}
+.sc.neg{background:linear-gradient(135deg,#8e44ad,#6c3483)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.tile{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:16px;padding:16px;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:6px;box-shadow:none}
+.tile:hover{border-color:var(--or)}
+.tile small{color:var(--muted);font-size:.78rem;font-weight:400}
+.table-wrap{overflow-x:auto;border-radius:14px;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;background:var(--panel)}
+th,td{padding:9px 10px;text-align:left;font-size:.88rem;border-bottom:1px solid var(--line);white-space:nowrap}
+th{background:var(--panel2)}
+tr:nth-child(even) td{background:var(--bg2)}
+.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:54px;height:54px;border-radius:50%;padding:0;display:grid;place-items:center;z-index:30;box-shadow:0 10px 24px rgba(0,0,0,.4)}
+.tpanel{position:fixed;right:14px;bottom:84px;width:240px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:0 16px 36px rgba(0,0,0,.45);z-index:31}
+.tp-t{font-weight:700;color:var(--or);margin-bottom:4px}
+.tp-o{display:flex;align-items:center;gap:10px;width:100%;background:var(--panel2);color:var(--ink);border:1px solid var(--line);box-shadow:none;padding:10px 12px;border-radius:12px;margin-top:8px;text-align:left}
+.tp-o.on{border-color:var(--or);box-shadow:0 0 0 2px rgba(245,165,36,.25)}
+.sw{width:26px;height:26px;border-radius:50%;border:2px solid rgba(255,255,255,.25);flex:0 0 auto}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);display:grid;gap:8px;z-index:50;width:min(92vw,380px)}
+.t{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--or);color:var(--ink);padding:12px 14px;border-radius:12px;box-shadow:var(--shadow);animation:tin .25s ease}
+.t.ok{border-left-color:var(--ok)}
+.t.bad{border-left-color:var(--bad)}
+@keyframes tin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:grid;place-items:center;z-index:40;padding:20px}
+.mbox{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:20px;padding:20px;width:min(420px,100%);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.mbox h3{color:var(--ink);font-size:1.1rem}
+.mbox p{color:var(--muted);margin:8px 0 16px}
+.mact{display:flex;gap:10px;justify-content:flex-end}
+.view{animation:vin .28s ease both}
+@keyframes vin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+#receipt{display:none}
+@media print{
+  #receipt{display:block!important;background:#fff;color:#000;padding:24px;font-family:sans-serif}
+  #receipt th{background:#fff!important;color:#000!important}
+  #receipt td{color:#000!important;background:#fff!important}
+  body.printing .top,body.printing main,body.printing .fab,body.printing #toast,body.printing .tpanel{display:none!important}
+  body.printing{background:#fff}
+}
+@media (max-width:600px){
+  .menu .ic{width:62px;height:62px}
+  .menu .ic svg{width:26px;height:26px}
+  .menu span{font-size:.82rem}
+  .menu button{padding:14px 4px 12px}
+  .g2{grid-template-columns:1fr}
+  .bn .big{font-size:1.25rem}
+}
+@media (prefers-reduced-motion:reduce){.view,.t{animation:none}*{transition:none!important}}
+body{font-size:15px}
+button{font-size:.88rem}
+button.sm{font-size:.76rem}
+label{font-size:.78rem}
+input,select,textarea{font-size:.9rem}
+.page-h h2{font-size:1.15rem;font-weight:700}
+.card h3{font-size:.95rem;font-weight:700}
+.kpi small{font-size:.76rem;letter-spacing:.2px}
+.kpi b{font-size:1.15rem}
+.menu span{font-size:.8rem}
+.row .main b{font-size:.92rem}
+.row .main small{font-size:.76rem}
+.row .end{font-size:.85rem}
+.chip{font-size:.76rem}
+.badge{font-size:.68rem}
+.kv{font-size:.88rem}
+.empty{font-size:.85rem}
+.bn .big{font-size:1.3rem}
+.bn .sub{font-size:.74rem}
+.bn .addr{font-size:.76rem}
+.sc b{font-size:1.15rem}
+.sc small{font-size:.74rem}
+.tile b{font-size:.9rem}
+.tile small{font-size:.72rem}
+.bar-row{font-size:.82rem}
+th,td{font-size:.8rem}
+@media (max-width:600px){.menu span{font-size:.74rem}.bn .big{font-size:1.2rem}.kpi b{font-size:1.05rem}}
+.top{flex-direction:column;justify-content:center;text-align:center;padding:12px 16px 14px}
+.brand{flex-direction:column;align-items:center;gap:6px}
+.logo{width:56px;height:56px}
+.bn{text-align:center}
+.bn .big{font-size:1.45rem;font-weight:700}
+.bn .sub{font-size:.85rem}
+.bn .addr{font-size:.82rem;white-space:normal}
+#sync{display:inline-block;margin-top:4px;font-size:.52rem;font-weight:600;padding:1px 7px}
+body{font-size:15px}
+label{font-size:.82rem;font-weight:700;color:color-mix(in srgb,var(--ink) 80%,transparent)}
+.kpi small{font-size:.8rem;font-weight:600;color:color-mix(in srgb,var(--ink) 82%,transparent)}
+.kpi b{font-size:1.25rem;font-weight:700}
+.card h3{font-size:1rem}
+.page-h h2{font-size:1.25rem}
+.row .main b{font-size:1rem}
+.row .main small{font-size:.8rem;color:color-mix(in srgb,var(--ink) 75%,transparent)}
+.row .end{font-size:.9rem}
+.menu span{font-size:.86rem}
+.chip{font-size:.8rem}
+.badge{font-size:.72rem}
+.kv{font-size:.92rem}
+.kv span{color:color-mix(in srgb,var(--ink) 75%,transparent)}
+.muted{color:color-mix(in srgb,var(--ink) 75%,transparent)}
+th,td{font-size:.86rem}
+.bar-row{font-size:.9rem}
+.sc small{font-size:.8rem}
+.tile small{font-size:.78rem}
+@media (max-width:600px){.menu span{font-size:.8rem}.bn .big{font-size:1.35rem}.kpi b{font-size:1.1rem}}
+.top{background:linear-gradient(180deg,color-mix(in srgb,var(--or) 16%,var(--bg)) 0%,var(--top) 100%);border-bottom:none;box-shadow:0 12px 30px rgba(0,0,0,.35);padding:22px 16px 18px;position:sticky}
+.top::after{content:"";position:absolute;left:12%;right:12%;bottom:0;height:1px;background:linear-gradient(90deg,transparent,var(--or),transparent)}
+.brand{gap:8px}
+.logo{width:72px;height:72px;border:3px solid var(--or);box-shadow:0 0 0 6px color-mix(in srgb,var(--or) 18%,transparent),0 10px 24px rgba(0,0,0,.4)}
+.bn .big{font-size:1.7rem;font-weight:700;letter-spacing:.5px;background:linear-gradient(90deg,var(--ink),var(--or));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.2}
+.bn .sub{display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:700;color:var(--or);letter-spacing:.3px;margin-top:2px}
+.bn .sub::before,.bn .sub::after{content:"";display:inline-block;width:22px;height:1px;background:var(--or);opacity:.6;margin:0 10px}
+.bn .addr{font-size:.82rem;opacity:.8;margin-top:4px}
+#sync{margin-top:8px}
+.page-h>div:first-child{flex:1 1 100%}
+.page-h>div:first-child>.muted{display:inline-flex;align-items:center;gap:6px;padding:5px 13px;border-radius:99px;background:var(--panel2);border:1px solid var(--line);font-size:.8rem;font-weight:700;color:var(--ink);letter-spacing:.4px;margin-top:8px}
+.home-quick{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;margin-top:6px}
+.home-quick button{padding:14px 10px;border-radius:16px;font-size:.92rem;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 10px 24px rgba(232,116,28,.3)}
+.home-quick button:not(.sec){background:linear-gradient(135deg,var(--or),var(--or2))}
+.home-quick button.sec{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid color-mix(in srgb,var(--or) 40%,transparent);color:var(--ink);box-shadow:none}
+.top{position:relative;top:auto;backdrop-filter:none;-webkit-backdrop-filter:none}
+html,body{height:auto;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.top{background:radial-gradient(420px 180px at 50% -20%,color-mix(in srgb,var(--or) 26%,transparent),transparent 70%),linear-gradient(180deg,color-mix(in srgb,var(--or) 10%,var(--bg)) 0%,var(--top) 100%);padding:24px 16px 22px}
+.top::after{content:"";position:absolute;left:8%;right:8%;bottom:-1px;height:2px;background:repeating-linear-gradient(90deg,var(--or) 0 8px,transparent 8px 14px);opacity:.55}
+.logo{width:78px;height:78px;border:3px solid var(--or);box-shadow:0 0 0 4px var(--top),0 0 0 7px color-mix(in srgb,var(--or) 35%,transparent),0 12px 26px rgba(0,0,0,.45)}
+.bn .big{font-size:1.8rem;letter-spacing:.8px}
+.bn .sub{letter-spacing:.5px}
+.bn .addr{display:flex;align-items:center;justify-content:center;gap:6px;opacity:.85}
+.bn .addr::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--or);flex:0 0 auto}
+#sync{margin-top:10px;background:rgba(46,204,113,.14);box-shadow:0 0 14px rgba(46,204,113,.18)}
+.top{padding:14px 16px 12px}
+.logo{width:64px;height:64px;box-shadow:0 0 0 3px var(--top),0 0 0 5px color-mix(in srgb,var(--or) 35%,transparent),0 8px 18px rgba(0,0,0,.4)}
+.bn .big{font-size:1.55rem;line-height:1.1}
+.bn .sub{font-size:.85rem;margin-top:0}
+.bn .addr{margin-top:2px;font-size:.8rem}
+#sync{margin-top:6px}
+.fab{width:46px;height:46px;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));opacity:.92}
+.tpanel{bottom:70px}
+.top{position:relative;overflow:hidden;background:radial-gradient(600px 220px at 50% -40%,color-mix(in srgb,var(--or) 30%,transparent),transparent 70%),linear-gradient(170deg,color-mix(in srgb,var(--or2) 12%,var(--bg)) 0%,var(--top) 60%,var(--bg) 100%);padding:20px 16px 18px;box-shadow:0 14px 34px rgba(0,0,0,.4)}
+.top::before{content:"";position:absolute;inset:0;background-image:radial-gradient(color-mix(in srgb,var(--or) 16%,transparent) 1px,transparent 1.3px);background-size:14px 14px;opacity:.6;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,#000 10%,transparent 90%);mask-image:linear-gradient(180deg,#000 10%,transparent 90%)}
+.top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,transparent,var(--or),var(--or2),transparent);opacity:1}
+.brand{position:relative;z-index:1;flex-direction:column;align-items:center;gap:8px}
+.logo{width:76px;height:76px;border:3px solid transparent;background:linear-gradient(var(--ink),var(--ink)) padding-box,linear-gradient(135deg,var(--or),var(--or2)) border-box;box-shadow:0 0 0 5px color-mix(in srgb,var(--or) 14%,transparent),0 12px 26px rgba(0,0,0,.45)}
+.logo img{padding:6px;background:#fff}
+.bn{position:relative;z-index:1;text-align:center}
+.bn .big{font-size:1.9rem;font-weight:700;letter-spacing:.6px;line-height:1.15;background:linear-gradient(90deg,var(--ink) 20%,var(--or));-webkit-background-clip:text;background-clip:text;color:transparent}
+.bn .sub{font-size:.9rem;font-weight:700;letter-spacing:.4px;color:var(--or);margin-top:4px}
+.bn .sub::before,.bn .sub::after{width:36px;height:2px;border-radius:2px;opacity:.9;margin:0 12px}
+.bn .addr{font-size:.82rem;opacity:.85;margin-top:6px}
+#sync{margin-top:10px;padding:3px 12px;background:rgba(46,204,113,.14);border:1px solid rgba(46,204,113,.35);box-shadow:none}
+.logo img{object-fit:cover}
+#gate{display:none;position:fixed;inset:0;z-index:70;background:var(--bg);place-items:center;padding:20px}
+body.locked #gate{display:grid}
+body.locked main,body.locked .top,body.locked .fab,body.locked #toast,body.locked #themePanel{display:none!important}
+.gcard{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:20px;padding:24px;width:min(380px,100%);box-shadow:var(--shadow)}
+.gcard h2{color:var(--or);margin-bottom:6px}
+#gate .muted{margin-bottom:14px}
+</style>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#141d2a">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
+<link rel="apple-touch-icon" sizes="192x192" href="icon-192.png">
+</head>
+<body class="locked">
+<header class="top">
+  <div class="brand">
+    <div class="logo" id="logoBox"></div>
+    <div class="bn">
+      <span class="big" id="shopBig"></span>
+      <span class="sub" id="shopSub"></span>
+      <span class="addr" id="shopAddr"></span>
+      <span id="sync">সিঙ্ক হচ্ছে...</span>
+    </div>
+  </div>
+  
+</header>
+<main id="app"></main>
+<div id="gate">
+  <div class="gcard">
+    <h2 id="gateTitle">PIN দিন</h2>
+    <p class="muted" id="gateMsg">অ্যাডমিন PIN দিয়ে অ্যাপ খুলুন।</p>
+    <form id="gatePin" class="form" style="grid-template-columns:1fr">
+      <label>PIN<input name="pin" type="password" inputmode="numeric" maxlength="8" required></label>
+      <div class="form-actions"><button>খুলুন</button></div>
+    </form>
+  </div>
+</div>
+<div id="toast"></div>
+<div id="modal" class="modal" hidden>
+  <div class="mbox">
+    <h3 id="mTitle"></h3>
+    <p id="mText"></p>
+    <div class="mact"><button class="sec" id="mNo">বাতিল</button><button id="mYes">নিশ্চিত</button></div>
+  </div>
+</div>
+<div id="receipt"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/dist/umd/supabase.min.js"></script>
+<script src="config.js"></script>
+<script>
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+function esc(v){ return String(v === undefined || v === null ? "" : v).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+const today = () => { const d = new Date(); return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0"); };
+const ym = () => today().slice(0,7);
+const bn = n => Math.round(+n || 0).toLocaleString("bn-BD");
+const money = n => "৳ " + bn(n);
+const monthLabel = m => { const [y,mo] = m.split("-"); return new Date(+y, +mo-1, 1).toLocaleDateString("bn-BD", {month:"long", year:"numeric"}); };
+const DEFAULT_LOGO = '<img src="data:image/jpeg;base64,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" alt="">';
+const svg = p => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
+const ICON = {
+  customer:'<circle cx="9" cy="8" r="3.2"/><path d="M3 19.5c.7-3.1 3.1-4.8 6-4.8s5.3 1.7 6 4.8"/><circle cx="17" cy="9" r="2.4"/><path d="M16.5 14.8c2.3.2 3.9 1.8 4.5 4.5"/>',
+  order:'<rect x="5" y="3.5" width="14" height="17" rx="2.5"/><path d="M9 8.5h6M9 12.5h6M9 16.5h3.5"/>',
+  employee:'<rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="11" r="2.2"/><path d="M5.8 16.5c.6-1.4 1.7-2.1 3.2-2.1s2.6.7 3.2 2.1"/><path d="M14.5 10h4M14.5 14h3"/>',
+  reports:'<path d="M4 20h16"/><rect x="6" y="11" width="3" height="7" rx="1"/><rect x="10.5" y="7" width="3" height="11" rx="1"/><rect x="15" y="4" width="3" height="14" rx="1"/>',
+  catalog:'<path d="M3 5.5c3-1.3 6-1.3 9 .5 3-1.8 6-1.8 9-.5v13c-3-1.3-6-1.3-9 .5-3-1.8-6-1.8-9-.5z"/><path d="M12 6v13"/>',
+  accounts:'<path d="M5 19V9M12 19V5M19 19v-7"/><path d="M3 19.5h18"/>',
+  settings:'<path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/>'
+};
+const MENU = [
+  {id:"customer", label:"কাস্টমার", c:"#2aa3c4"}, {id:"order", label:"অর্ডার", c:"#f1c40f"},
+  {id:"employee", label:"কর্মচারী", c:"#2ecc71"}, {id:"reports", label:"রিপোর্ট", c:"#e74c3c"},
+  {id:"catalog", label:"ক্যাটালগ", c:"#ecf0f1"}, {id:"accounts", label:"হিসাব", c:"#9b59b6"},
+  {id:"settings", label:"প্রভৃতি", c:"#e67e22"}
+];
+const GENDER = ["পুরুষ","মহিলা"];
+const JOBS = ["কাটার মাস্টার","দর্জি","সহকারী","ফিনিশার","বিক্রয়কর্মী","অন্যান্য"];
+const MONTHS = ["জানুয়ারি","ফেব্রুয়ারি","মার্চ","এপ্রিল","মে","জুন","জুলাই","আগস্ট","সেপ্টেম্বর","অক্টোবর","নভেম্বর","ডিসেম্বর"];
+const STATUS = ["প্রক্রিয়াধীন","কাটা হয়েছে","তৈরি","ডেলিভারি হয়েছে"];
+const SCLS = ["b-pending","b-cut","b-ready","b-done"];
+const MEAS = {
+  "শার্ট":["লম্বা","বুক","কোমর","হাতা","কাঁধ","গলা"], "পাঞ্জাবী":["ঝুল","বুক","হাতা","গলা","কাঁধ"],
+  "প্যান্ট":["কোমর","দৈর্ঘ্য","হাঁটু","মুহুরি","ঊরু"], "জুব্বা":["লম্বা","বুক","হাতা","গলা"],
+  "পায়জামা":["কোমর","দৈর্ঘ্য","মুহুরি"], "কোর্ট":["লম্বা","বুক","কোমর","হাতা","কাঁধ"],
+  "সালোয়ার":["কোমর","দৈর্ঘ্য","মুহুরি"], "কামিজ":["লম্বা","বুক","কোমর","হাতা","গলা"],
+  "বোরখা":["লম্বা","বুক","হাতা"], "বেবি ফ্রক":["লম্বা","বুক","কোমর"],
+  "স্যুট":["লম্বা","বুক","কোমর","হাতা","কাঁধ"], "ব্লাউজ":["লম্বা","বুক","কোমর","হাতা"],
+  "শেরওয়ানি":["ঝুল","বুক","হাতা","কাঁধ"], "সংশোধন/মেরামত":["বিবরণ"]
+};
+const CAT = {"পুরুষ":["প্যান্ট","শার্ট","পাঞ্জাবী","জুব্বা","পায়জামা","কোর্ট"], "মহিলা":["সালোয়ার","কামিজ","বোরখা","বেবি ফ্রক"]};
+const ITEMS = Object.keys(MEAS);
+const COL = ["#e67e22","#2aa3c4","#2ecc71","#9b59b6","#e74c3c","#f1c40f","#1abc9c","#e84393"];
+const INC_CATS = ["বিক্রয়","অন্যান্য আয়"];
+const EXP_CATS = ["কাপড় ক্রয়","আনুষঙ্গিক ক্রয়","বিদ্যুৎ/পানি/গ্যাস","দোকান ভাড়া","পরিবহন","মেশিন মেরামত","অন্যান্য ব্যয়","কর্মচারী বেতন"];
+const REPS = [["c","কাস্টমার"],["e","কর্মচারী"],["m","মোবাইল"],["d","বকেয়া"],["o","অর্ডার"],["p","মাসিক লাভ-ক্ষতি"]];
+const THEMES = [
+  {id:"navy", name:"নেভি গোল্ড", a:"#141d2a", b:"#f5a524", v:{"--bg":"#141d2a","--bg2":"#1f2d3f","--panel":"#243548","--panel2":"#2b3f56","--ink":"#eef3f8","--muted":"#9fb0c3","--or":"#f5a524","--or2":"#e8741c","--line":"rgba(255,255,255,.08)","--top":"rgba(20,29,42,.85)","--glow":"#2a3f57","--ic":"#15212f"}},
+  {id:"noir", name:"কালো ও সোনালি", a:"#0d0d0d", b:"#d4af37", v:{"--bg":"#0d0d0d","--bg2":"#161616","--panel":"#1c1c1c","--panel2":"#242424","--ink":"#f5f1e6","--muted":"#a8a193","--or":"#d4af37","--or2":"#b8912c","--line":"rgba(212,175,55,.18)","--top":"rgba(13,13,13,.9)","--glow":"#2a2a2a","--ic":"#141414"}},
+  {id:"emerald", name:"এমারেল", a:"#0f2a22", b:"#2ecc71", v:{"--bg":"#0f2a22","--bg2":"#15382d","--panel":"#183f33","--panel2":"#1d4b3d","--ink":"#e9f8f1","--muted":"#9cc9b5","--or":"#2ecc71","--or2":"#1a9e55","--line":"rgba(180,255,220,.12)","--top":"rgba(15,42,34,.9)","--glow":"#1f5a48","--ic":"#0f2a22"}},
+  {id:"dark", name:"ডার্ক মোড", a:"#0e0f12", b:"#f5a524", v:{"--bg":"#0e0f12","--bg2":"#15171c","--panel":"#1c1f26","--panel2":"#23272f","--ink":"#eceef2","--muted":"#8d95a3","--or":"#f5a524","--or2":"#e8741c","--line":"rgba(255,255,255,.07)","--top":"rgba(14,15,18,.9)","--glow":"#1a1d24","--ic":"#14171d"}}
+];
+
+/* ---------- ডাটা ---------- */
+function recalc(o){ o.total = (+o.qty || 0) * (+o.price || 0); o.due = Math.max(0, o.total - (+o.paid || 0)); }
+function norm(d){
+  const s = Object.assign({name:"হুজাইফা পাঞ্জাবি টেইলার্স এন্ড ফেব্রিক্স", addr:"চকরামপুর বাজার, ত্রিশাল, ময়মনসিংহ", logo:""}, d.settings || {});
+  if (s.name === "আমার টেইলার্স") s.name = "হুজাইফা পাঞ্জাবি টেইলার্স এন্ড ফেব্রিক্স";
+  delete s.phone;
+  const customers = d.customers || [], orders = d.orders || [], employees = d.employees || [], txs = d.txs || [];
+  const mx = a => a.reduce((m,x) => Math.max(m, +x.id || 0), 0);
+  const sq = d.seq || {};
+  orders.forEach(o => { o.paid = +o.paid || 0; o.m = o.m || {}; recalc(o); });
+  return {customers, orders, employees, txs, settings:s, seq:{
+    c: Math.max(sq.c || 0, sq.customer || 0, mx(customers)),
+    o: Math.max(sq.o || 0, sq.order || 0, mx(orders)),
+    e: Math.max(sq.e || 0, sq.employee || 0, mx(employees)),
+    t: Math.max(sq.t || 0, mx(txs))
+  }};
+}
+function loadDB(){ try { const d = JSON.parse(localStorage.getItem("tms_db")); if (d) return norm(d); } catch(e){} return norm({}); }
+let DB = loadDB();
+let CUR = {v:"home", p:null};
+let LQ = {}, LF = {order:"all"}, LAST = {title:"", html:""}, modalDone = null;
+function save(){ try { localStorage.setItem("tms_db", JSON.stringify(DB)); } catch(e){} pushCloud(); }
+const nid = k => (DB.seq[k] = (DB.seq[k] || 0) + 1);
+const cust = id => DB.customers.find(c => c.id == id);
+const cname = id => (cust(id) || {}).name || "—";
+const ordr = id => DB.orders.find(o => o.id == id);
+const colOf = k => DB[k === "c" ? "customers" : k === "o" ? "orders" : "employees"];
+
+/* ---------- লেনদেন ও হিসাব ---------- */
+function pushTx(t){ DB.txs.push({id:nid("t"), date:t.date || today(), type:t.type, cat:t.cat, amt:+t.amt || 0, note:t.note || "", ref:t.ref || "", month:t.month || ""}); save(); }
+function monthTx(m){ return DB.txs.filter(t => String(t.date || "").startsWith(m)); }
+function sumTx(type, m){ return DB.txs.filter(t => t.type === type && (!m || String(t.date).startsWith(m))).reduce((s,t) => s + (+t.amt || 0), 0); }
+function addPay(o, amt, date){
+  amt = +amt; if (amt <= 0) return false;
+  o.paid = (+o.paid || 0) + amt; recalc(o);
+  pushTx({type:"income", cat:"অর্ডার আয়", amt, date, note:cname(o.cust) + " — " + o.item, ref:"o" + o.id});
+  return true;
+}
+function removeTx(id){
+  const t = DB.txs.find(x => x.id == id); if (!t) return;
+  if (/^o\d+$/.test(t.ref || "")) { const o = ordr(t.ref.slice(1)); if (o) { o.paid = Math.max(0, (+o.paid || 0) - t.amt); recalc(o); } }
+  DB.txs = DB.txs.filter(x => x.id != id); save();
+}
+function fillCats(){
+  const t = $("#txType"), c = $("#txCat"); if (!t || !c) return;
+  c.innerHTML = (t.value === "income" ? INC_CATS : EXP_CATS).map(x => `<option>${x}</option>`).join("");
+}
+
+/* ---------- ক্লাউড সিঙ্ক (PIN + Supabase Edge Function) ---------- */
+let SB_PIN = "";
+// dirty = এমন তথ্য আছে যা এখনো Supabase-এ পৌঁছায়নি (ফোনে সেভ আছে, ক্লাউডে বাকি)
+const SYNC = {synced:{}, ready:false, q:Promise.resolve(), ver:0, dirty:false};
+try { SYNC.dirty = localStorage.getItem("tms_dirty") === "1"; } catch(e){}
+const PREFIX = {customers:"c", orders:"o", employees:"e", txs:"t"};
+function setSync(t){ const el = $("#sync"); if (el) el.textContent = t; }
+function setDirty(v){ SYNC.dirty = !!v; try { localStorage.setItem("tms_dirty", v ? "1" : "0"); } catch(e){} }
+function refreshSyncText(){
+  if (!SB_PIN) return;
+  setSync(SYNC.dirty ? "⏳ ক্লাউডে সেভ বাকি" : "☁️ ক্লাউডে সুরক্ষিত");
+}
+function syncUrl(){ return String(window.SUPABASE_URL || "").replace(/\/$/, "") + "/functions/v1/sync"; }
+async function callSync(body){
+  const res = await fetch(syncUrl(), {
+    method: "POST",
+    headers: {"Content-Type": "application/json", "apikey": window.SUPABASE_ANON_KEY, "Authorization": "Bearer " + window.SUPABASE_ANON_KEY},
+    body: JSON.stringify(Object.assign({pin: SB_PIN}, body))
+  });
+  let json = {}; try { json = await res.json(); } catch(e){}
+  if (!res.ok) { const err = new Error(json.error || ("HTTP " + res.status)); err.status = res.status; throw err; }
+  return json;
+}
+function isConfigured(){
+  return !!window.SUPABASE_URL && !String(window.SUPABASE_URL).includes("YOUR-PROJECT")
+    && !!window.SUPABASE_ANON_KEY && !String(window.SUPABASE_ANON_KEY).includes("YOUR-ANON-KEY");
+}
+function showGate(msg){
+  document.body.classList.add("locked");
+  $("#gateTitle").textContent = "PIN দিন";
+  $("#gateMsg").textContent = msg || "অ্যাডমিন PIN দিয়ে অ্যাপ খুলুন।";
+  $("#gatePin").pin.value = "";
+}
+function unlockApp(){ document.body.classList.remove("locked"); }
+// লক করলে ফোনের কপি মুছে যায়; তবে ক্লাউডে না যাওয়া তথ্য থাকলে লক হবে না
+function lockApp(msg){
+  if (SYNC.dirty) return toast("কিছু তথ্য এখনো ক্লাউডে যায়নি। ইন্টারনেট দেখে কিছুক্ষণ পর আবার চেষ্টা করুন।", "bad");
+  SB_PIN = ""; SYNC.ready = false; SYNC.synced = {};
+  try { localStorage.removeItem("tms_db"); } catch(e){}
+  DB = norm({});
+  render(); showGate(msg);
+}
+async function doPush(){
+  if (!SB_PIN || !SYNC.ready) return;
+  const startVer = SYNC.ver;
+  const cur = {};
+  for (const [k,p] of Object.entries(PREFIX)) (DB[k] || []).forEach(r => { cur[p + r.id] = r; });
+  cur.meta = {seq:DB.seq, settings:DB.settings};
+  const upserts = [], changed = [];
+  for (const [rid, r] of Object.entries(cur)) {
+    const s = JSON.stringify(r);
+    if (SYNC.synced[rid] !== s) { upserts.push({rid, data:r}); changed.push([rid, s]); }
+  }
+  const removed = Object.keys(SYNC.synced).filter(rid => !(rid in cur));
+  if (!upserts.length && !removed.length) { setDirty(false); refreshSyncText(); return; }
+  try {
+    await callSync({action:"push", upserts, removed});
+    changed.forEach(([rid, s]) => { SYNC.synced[rid] = s; });
+    removed.forEach(rid => { delete SYNC.synced[rid]; });
+    setDirty(SYNC.ver !== startVer);
+    refreshSyncText();
+  } catch(e) {
+    setDirty(true);
+    setSync("⏳ ক্লাউডে সেভ বাকি (ইন্টারনেট দেখুন)");
+  }
+}
+// প্রতিটি পরিবর্তনে: ফোনে সেভ + ক্লাউডে পাঠানোর জন্য সারিতে যোগ
+function pushCloud(){
+  SYNC.ver++;
+  setDirty(true);
+  if (!SYNC.ready) return;
+  SYNC.q = SYNC.q.then(doPush);
+}
+// বাকি থাকা তথ্য আবার পাঠানোর চেষ্টা: নেটওয়ার্ক ফিরে এলে বা প্রতি ২০ সেকেন্ডে
+function pushNow(){
+  if (!SYNC.ready || !SB_PIN) return;
+  SYNC.q = SYNC.q.then(doPush);
+}
+setInterval(() => { if (SYNC.dirty) pushNow(); }, 20000);
+window.addEventListener("online", () => { if (SYNC.dirty) pushNow(); });
+// ক্লাউডে না যাওয়া তথ্য থাকলে পাতা বন্ধ করার আগে সতর্ক করা
+window.addEventListener("beforeunload", e => { if (SYNC.dirty) { e.preventDefault(); e.returnValue = ""; } });
+async function pullCloud(){
+  const json = await callSync({action:"pull"});
+  const rows = json.rows || [];
+  if (!rows.length) return false;
+  const nd = {customers:[], orders:[], employees:[], txs:[], seq:{}, settings:DB.settings};
+  const rev = {c:"customers", o:"orders", e:"employees", t:"txs"};
+  rows.forEach(row => {
+    SYNC.synced[row.rid] = JSON.stringify(row.data);
+    if (row.rid === "meta") { nd.seq = row.data.seq || {}; nd.settings = row.data.settings || nd.settings; }
+    else nd[rev[row.rid[0]]].push(row.data);
+  });
+  DB = norm(nd);
+  try { localStorage.setItem("tms_db", JSON.stringify(DB)); } catch(e){}
+  return true;
+}
+async function afterUnlock(){
+  SYNC.ready = true;
+  try {
+    if (SYNC.dirty) {
+      // ফোনে যা বাকি আছে আগে ক্লাউডে পাঠাই, তারপর চালিয়ে যাই
+      render();
+      await doPush();
+    } else {
+      const had = await pullCloud();
+      render();
+      if (!had) await doPush();
+    }
+    refreshSyncText();
+  } catch(e) { render(); setSync("⚠️ ক্লাউড সংযোগ ব্যর্থ"); }
+}
+async function pinUnlock(pin){
+  const msg = $("#gateMsg");
+  SB_PIN = pin; msg.textContent = "যাচাই হচ্ছে...";
+  try {
+    await callSync({action:"check"});
+  } catch(e) {
+    SB_PIN = "";
+    msg.textContent = e.status === 429 ? "অনেকবার ভুল PIN হয়েছে। অ্যাডমিনের সাথে যোগাযোগ করুন।"
+      : e.status === 401 ? "PIN ভুল হয়েছে।"
+      : "সংযোগ করা যায়নি। ইন্টারনেট দেখুন।";
+    return;
+  }
+  unlockApp();
+  await afterUnlock();
+}
+async function cloudRestore(){
+  if (!SB_PIN) return toast("আগে অ্যাপ আনলক করুন", "bad");
+  if (SYNC.dirty) return toast("আগে বাকি তথ্য ক্লাউডে যাক, তারপর আনুন", "bad");
+  try { const ok = await pullCloud(); render(); toast(ok ? "ক্লাউড থেকে তথ্য আনা হয়েছে" : "ক্লাউডে কোনো তথ্য নেই", ok ? "ok" : ""); }
+  catch(e) { toast("ক্লাউড থেকে আনা যায়নি", "bad"); }
+}
+function startApp(){
+  $("#gatePin").onsubmit = e => { e.preventDefault(); const pin = (e.target.pin.value || "").trim(); if (pin) pinUnlock(pin); };
+  if (!isConfigured()) { SB_PIN = ""; return showGate("সেটআপ সম্পন্ন হয়নি। config.js-এ Supabase তথ্য বসান।"); }
+  showGate();
+}
+
+/* ---------- ছোট UI উপাদান ---------- */
+function toast(msg, type = ""){
+  const el = document.createElement("div"); el.className = "t " + type; el.textContent = msg;
+  $("#toast").appendChild(el); setTimeout(() => el.remove(), 2600);
+}
+function ask(title, text, ok = "নিশ্চিত", danger = false){
+  return new Promise(res => {
+    const m = $("#modal"), y = $("#mYes"), n = $("#mNo");
+    $("#mTitle").textContent = title; $("#mText").textContent = text;
+    y.textContent = ok; y.className = danger ? "danger" : "";
+    m.hidden = false;
+    const done = v => { m.hidden = true; y.onclick = n.onclick = m.onclick = null; modalDone = null; res(v); };
+    modalDone = done;
+    y.onclick = () => done(true); n.onclick = () => done(false);
+    m.onclick = ev => { if (ev.target === m) done(false); };
+  });
+}
+const av = name => { const h = hueOf(name); return `<span class="av" style="background:linear-gradient(135deg,hsl(${h} 65% 50%),hsl(${(h+40)%360} 65% 40%))">${esc(String(name || "?").trim().charAt(0))}</span>`; };
+function hueOf(s){ let h = 0; for (const ch of String(s || "")) h = (h * 31 + ch.charCodeAt(0)) % 360; return h; }
+const sbadge = s => { const i = STATUS.indexOf(s); return `<span class="badge ${SCLS[i >= 0 ? i : 0]}">${esc(s)}</span>`; };
+const kpi = (label, value, cls = "") => `<div class="kpi ${cls}"><small>${esc(label)}</small><b>${value}</b></div>`;
+const kv = (label, value, raw = false) => `<div class="kv"><span>${esc(label)}</span><b>${raw ? value : esc(value)}</b></div>`;
+const row = (avatar, title, sub, end, view, id) => `<div class="row" data-go="${view}" data-id="${id}">${avatar}<div class="main"><b>${esc(title)}</b><small>${esc(sub)}</small></div><div class="end">${end}</div></div>`;
+const empty = t => `<div class="empty">${t}</div>`;
+const head = (title, right = "", back = true) => `<div class="page-h"><div class="crumb">${back ? '<button class="homebtn" data-back title="পেছনে" aria-label="পেছনে ফিরুন">‹</button>' : ""}<h2>${title}</h2></div><div class="quick">${right}</div></div>`;
+function tbl(headers, rows){
+  return `<div class="table-wrap"><table><tr>${headers.map(h => `<th>${esc(h)}</th>`).join("")}</tr>${rows.map(r => `<tr>${r.map(c => `<td>${esc(c)}</td>`).join("")}</tr>`).join("") || `<tr><td colspan="${headers.length}">তথ্য নেই</td></tr>`}</table></div>`;
+}
+function measFields(item, m = {}){
+  return (MEAS[item] || []).map((k,i) => `<label>${esc(k)}<input name="m${i}" value="${esc((m || {})[k] || "")}" placeholder="ইঞ্চি"></label>`).join("");
+}
+function measTable(item, m){ return tbl([item, "মাপ"], Object.entries(m || {})); }
+let EMP_PHOTO = null;
+function avImg(src){ return `<span class="av" style="background:none;overflow:hidden"><img src="${src}" alt="" style="width:100%;height:100%;object-fit:cover"></span>`; }
+function handleEmpPhoto(file){
+  const url = URL.createObjectURL(file), img = new Image();
+  img.onload = () => {
+    const sc = Math.min(1, 200 / Math.max(img.width, img.height));
+    const c = document.createElement("canvas");
+    c.width = Math.round(img.width * sc); c.height = Math.round(img.height * sc);
+    c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+    EMP_PHOTO = c.toDataURL("image/jpeg", 0.85);
+    URL.revokeObjectURL(url);
+    const box = document.getElementById("empPrevBox");
+    if (box) box.innerHTML = `<img src="${EMP_PHOTO}" alt="" style="width:100%;height:100%;object-fit:cover">`;
+    toast("ছবি নির্বাচিত হয়েছে", "ok");
+  };
+  img.onerror = () => toast("ছবিটি খোলা যায়নি", "bad");
+  img.src = url;
+}
+const waLink = (mobile, text) => {
+  let p = String(mobile || "").replace(/\D/g, "");
+  if (p.startsWith("01")) p = "880" + p;
+  return `https://wa.me/${p}?text=${encodeURIComponent(text)}`;
+};
+
+/* ---------- নেভিগেশন ---------- */
+let DEPTH = 0;
+function go(v, p = null, mode = true){
+  const st = {v, p};
+  if (mode === true && CUR.v === v && JSON.stringify(CUR.p) === JSON.stringify(p)) return;
+  if (mode === true) DEPTH++;
+  try { if (mode === "replace") history.replaceState(st, ""); else if (mode) history.pushState(st, ""); } catch(e){}
+  CUR = st; render(); window.scrollTo(0, 0);
+}
+function renderHeader(){
+  const s = DB.settings, parts = s.name.split(" ");
+  $("#shopBig").textContent = parts[0];
+  $("#shopSub").textContent = parts.slice(1).join(" ");
+  $("#shopAddr").textContent = s.addr || "";
+  $("#logoBox").innerHTML = s.logo ? `<img src="${s.logo}" alt="">` : DEFAULT_LOGO;
+}
+function render(){
+  renderHeader();
+  const V = {
+    home: vHome, customer: () => vList("customer"), order: () => vList("order"), employee: () => vList("employee"),
+    catalog: vCatalog, reports: () => vReports(CUR.p), accounts: () => vAccounts(CUR.p || ym()), settings: vSettings,
+    cform: () => vCForm(CUR.p), cprofile: () => vCProfile(CUR.p), oform: () => vOForm(CUR.p), odetail: () => vODetail(CUR.p), eform: () => vEForm(CUR.p)
+  };
+  const f = V[CUR.v] || vHome;
+  $("#app").innerHTML = `<div class="view">${f()}</div>`;
+  if (CUR.v === "accounts") fillCats();
+}
+
+/* ---------- পাতাসমূহ ---------- */
+function vHome(){
+  const t = today(), m = ym();
+  const open = DB.orders.filter(o => o.status !== "ডেলিভারি হয়েছে");
+  const dueT = open.filter(o => o.ddate === t).length, late = open.filter(o => o.ddate && o.ddate < t).length;
+  const bal = DB.orders.reduce((s,o) => s + (+o.due || 0), 0);
+  const inc = sumTx("income", m), exp = sumTx("expense", m), pr = inc - exp;
+  return `<div class="page-h"><div><div dir="rtl" style="font-size:.92rem;color:var(--or);font-weight:700;line-height:1.8;text-align:right">اللَّهُمَّ بَارِكْ لَنَا فِي أَرْزَاقِنَا، وَارْزُقْنَا رِزْقًا حَلَالًا طَيِّبًا مُبَارَكًا فِيهِ</div><div style="font-size:.8rem;opacity:.85;line-height:1.6;max-width:52ch;margin-top:4px">অর্থ: হে আল্লাহ! আমাদের রিজিকে বরকত দান করুন এবং পবিত্র, হালাল ও বরকতময় রিজিক দান করুন। আমিন।</div><span class="muted">${esc(today())}</span></div>
+    <div class="quick home-quick"><button data-go="oform">+ নতুন অর্ডার</button><button class="sec" data-go="cform">+ নতুন কাস্টমার</button></div></div>
+    <div class="kpis">
+      ${kpi("আজকের ডেলিভারি", bn(dueT))}
+      ${kpi("দেরি হওয়া অর্ডার", bn(late), late ? "warn" : "ok")}
+      ${kpi("চলমান অর্ডার", bn(open.length))}
+      ${kpi("মোট বাকি", money(bal), bal ? "warn" : "ok")}
+      ${kpi("এই মাসের আয়", money(inc), "ok")}
+      ${kpi("এই মাসের লাভ/ক্ষতি", money(pr), pr >= 0 ? "ok" : "warn")}
+    </div>
+    <div class="menu">${MENU.map(x => `<button data-go="${x.id}" style="--c:${x.c}"><div class="ic">${svg(ICON[x.id])}</div><span>${x.label}</span></button>`).join("")}</div>`;
+}
+function listRows(kind){
+  const q = (LQ[kind] || "").toLowerCase();
+  if (kind === "customer") {
+    const rows = DB.customers.filter(c => (c.name + " " + (c.mobile || "")).toLowerCase().includes(q)).sort((a,b) => b.id - a.id);
+    if (!rows.length) return empty("কোনো কাস্টমার নেই");
+    return rows.map(c => {
+      const last = DB.orders.filter(o => o.cust == c.id).sort((a,b) => b.id - a.id)[0];
+      return row(av(c.name), c.name, c.mobile || "মোবাইল নেই", last ? sbadge(last.status) : '<span class="badge b-new">নতুন</span>', "cprofile", c.id);
+    }).join("");
+  }
+  if (kind === "order") {
+    const f = LF.order || "all";
+    const rows = DB.orders.filter(o => (f === "all" || o.status === f) && (cname(o.cust) + " " + o.item).toLowerCase().includes(q))
+      .sort((a,b) => String(a.ddate || "9999").localeCompare(String(b.ddate || "9999")));
+    if (!rows.length) return empty("কোনো অর্ডার নেই");
+    return rows.map(o => row(av(cname(o.cust)), cname(o.cust) + " — " + o.item, "ডেলিভারি: " + (o.ddate || "—"),
+      sbadge(o.status) + `<div class="${o.due > 0 ? "due" : "paid"}">${o.due > 0 ? money(o.due) + " বাকি" : "পরিশোধিত"}</div>`, "odetail", o.id)).join("");
+  }
+  const rows = DB.employees.filter(e => (e.name + " " + e.job).toLowerCase().includes(q)).sort((a,b) => b.id - a.id);
+  if (!rows.length) return empty("কোনো কর্মচারী নেই");
+  return rows.map(e => row(e.photo ? avImg(e.photo) : av(e.name), e.name, (e.job || "") + " · " + (e.mobile || ""), `<b>${money(e.total)}</b>`, "eform", e.id)).join("");
+}
+function vList(kind){
+  const titles = {customer:"কাস্টমার", order:"অর্ডার", employee:"কর্মচারী"};
+  const news = {customer:"cform", order:"oform", employee:"eform"};
+  const chips = kind === "order" ? `<div class="chips">${["all", ...STATUS].map(s => `<button class="chip ${(LF.order || "all") === s ? "on" : ""}" data-chip="${s}">${s === "all" ? "সব" : s}</button>`).join("")}</div>` : "";
+  return head(titles[kind], `<button data-go="${news[kind]}">+ নতুন</button>`, true)
+    + `<div class="tool"><input data-q="${kind}" placeholder="${kind === 'order' ? 'নাম বা পণ্য দিয়ে খুঁজুন' : kind === 'employee' ? 'নাম বা কাজের ধরন দিয়ে খুঁজুন' : 'নাম বা মোবাইল দিয়ে খুঁজুন'}" value="${esc(LQ[kind] || "")}"></div>${chips}<div id="listBody">${listRows(kind)}</div>`;
+}
+function vCForm(p){
+  const c = p && p.id ? cust(p.id) || {} : {};
+  return head(p && p.id ? "কাস্টমার সম্পাদনা" : "নতুন কাস্টমার") + `
+  <form class="card form" data-kind="c" data-id="${p && p.id || ""}">
+    <label>নাম<input name="name" required value="${esc(c.name)}"></label>
+    <label>মোবাইল<input name="mobile" value="${esc(c.mobile)}"></label>
+    <label>লিঙ্গ<select name="gender">${GENDER.map(g => `<option ${c.gender === g ? "selected" : ""}>${g}</option>`).join("")}</select></label>
+    <label>ই-মেইল<input name="email" value="${esc(c.email)}"></label>
+    <label class="full">ঠিকানা<input name="addr" value="${esc(c.addr)}"></label>
+    <label class="full">নোটস<textarea name="notes" rows="2">${esc(c.notes)}</textarea></label>
+    <div class="form-actions"><button type="button" class="sec" data-back>বাতিল</button><button>সেভ করুন</button></div>
+  </form>`;
+}
+function vCProfile(p){
+  const c = p && cust(p.id);
+  if (!c) return head("কাস্টমার পাওয়া যায়নি") + empty("এই কাস্টমার নেই।");
+  const orders = DB.orders.filter(o => o.cust == c.id).sort((a,b) => b.id - a.id);
+  const total = orders.reduce((s,o) => s + (+o.total || 0), 0), due = orders.reduce((s,o) => s + (+o.due || 0), 0);
+  const withM = orders.find(o => o.m && Object.keys(o.m).length);
+  const wa = c.mobile ? `<a class="link-btn sm" target="_blank" rel="noopener" href="${waLink(c.mobile, "আসসালামু আলাইকুম " + c.name + ", ")}">WhatsApp</a>` : "";
+  return head(esc(c.name), `<button class="sec sm" data-go="cform" data-id="${c.id}">সম্পাদনা</button><button class="sm" data-go="oform" data-cust="${c.id}">+ অর্ডার</button>`)
+  + `<div class="kpis">${kpi("মোট অর্ডার", bn(orders.length))}${kpi("মোট বিল", money(total))}${kpi("বকেয়া", money(due), due ? "warn" : "ok")}</div>
+  <div class="grid g2">
+    <div class="card"><h3>যোগাযোগ</h3>${kv("মোবাইল", c.mobile || "—")}${kv("ই-মেইল", c.email || "—")}${kv("ঠিকানা", c.addr || "—")}${c.notes ? kv("নোটস", c.notes) : ""}<div style="margin-top:12px">${wa}</div></div>
+    <div class="card"><h3>সর্বশেষ মাপ</h3>${withM ? measTable(withM.item, withM.m) : '<p class="muted">কোনো মাপ নেই।</p>'}</div>
+  </div>
+  <div class="card"><h3>অর্ডারের ইতিহাস</h3>${orders.length ? orders.map(o => row(av(o.item), o.item, "ডেলিভারি: " + (o.ddate || "—"), sbadge(o.status) + `<div class="${o.due > 0 ? "due" : "paid"}">${o.due > 0 ? money(o.due) : "পরিশোধিত"}</div>`, "odetail", o.id)).join("") : '<p class="muted">এখনো কোনো অর্ডার নেই।</p>'}</div>
+  <div class="quick"><button class="danger sm" data-delc="${c.id}">কাস্টমার মুছুন</button></div>`;
+}
+function vOForm(p){
+  p = p || {};
+  const o = p.id ? ordr(p.id) || {} : {};
+  const isNew = !p.id;
+  const item = o.item || p.item || ITEMS[0], cu = o.cust || p.cust || "";
+  return head(isNew ? "নতুন অর্ডার" : "অর্ডার সম্পাদনা") + `
+  <form class="card form" data-kind="o" data-id="${p.id || ""}">
+    <label class="full">কাস্টমার<select name="cust" required><option value="">— নির্বাচন করুন —</option>${DB.customers.map(c => `<option value="${c.id}" ${c.id == cu ? "selected" : ""}>${esc(c.name)}</option>`).join("")}</select></label>
+    <label>পণ্য<select name="item" id="oItem">${ITEMS.map(i => `<option ${i === item ? "selected" : ""}>${esc(i)}</option>`).join("")}</select></label>
+    <label>অর্ডার তারিখ<input type="date" name="odate" value="${esc(o.odate || today())}"></label>
+    <label>ডেলিভারি তারিখ<input type="date" name="ddate" value="${esc(o.ddate || "")}"></label>
+    <label>পরিমাণ<input type="number" min="1" name="qty" value="${o.qty || 1}"></label>
+    <label>একক মূল্য (৳)<input type="number" min="0" name="price" value="${o.price || ""}"></label>
+    <label>মোট মূল্য<input id="oTotal" readonly value="${bn((o.qty || 1) * (o.price || 0))}"></label>
+    ${isNew ? `<label>অগ্রিম (৳)<input type="number" min="0" name="adv"></label>` : `<label>পরিশোধিত<input readonly value="${bn(o.paid)}"></label><label>বকেয়া<input readonly value="${bn(o.due)}"></label>`}
+    <label>অবস্থা<select name="status">${STATUS.map(s => `<option ${(o.status || STATUS[0]) === s ? "selected" : ""}>${s}</option>`).join("")}</select></label>
+    <label class="full">নোটস<textarea name="notes" rows="2">${esc(o.notes)}</textarea></label>
+    <div class="card full" style="margin:0"><h3>মাপ — <span id="mTitle2">${esc(item)}</span></h3><div class="meas" id="measBox">${measFields(item, o.m)}</div></div>
+    <div class="form-actions"><button type="button" class="sec" data-back>বাতিল</button><button>সেভ করুন</button></div>
+  </form>`;
+}
+function vODetail(p){
+  const o = p && ordr(p.id);
+  if (!o) return head("অর্ডার পাওয়া যায়নি") + empty("এই অর্ডার নেই।");
+  const pays = DB.txs.filter(t => t.ref === "o" + o.id).sort((a,b) => String(b.date).localeCompare(String(a.date)));
+  const c = cust(o.cust) || {};
+  const wa = o.due > 0 && c.mobile ? `<a class="link-btn sm" target="_blank" rel="noopener" href="${waLink(c.mobile, "আসসালামু আলাইকুম " + cname(o.cust) + ", আপনার " + o.item + " অর্ডারের " + bn(o.due) + " টাকা বকেয়া আছে। ডেলিভারি " + (o.ddate || "") + "। — " + DB.settings.name)}">WhatsApp</a>` : "";
+  return head("অর্ডার #" + o.id, `<button class="sec sm" data-go="oform" data-id="${o.id}">সম্পাদনা</button><button class="sec sm" data-receipt="${o.id}">রশিদ</button>${wa}`)
+  + `<div class="card">
+      <div class="crumb" style="justify-content:space-between;flex-wrap:wrap"><div><h3 style="color:var(--ink);font-size:1.15rem">${esc(cname(o.cust))}</h3><span class="muted">${esc(o.item)} · ${bn(o.qty)} টি</span></div>${sbadge(o.status)}</div>
+      <div style="margin-top:12px">${kv("ডেলিভারি", o.ddate || "—")}${kv("মোট মূল্য", money(o.total))}${kv("পরিশোধিত", `<span class="paid">${money(o.paid)}</span>`, true)}${kv("বকেয়া", `<span class="${o.due > 0 ? "due" : "paid"}">${money(o.due)}</span>`, true)}${o.notes ? kv("নোটস", o.notes) : ""}</div>
+    </div>
+    <div class="card"><h3>অবস্থা পরিবর্তন</h3><div class="chips">${STATUS.map(s => `<button class="chip ${o.status === s ? "on" : ""}" data-status="${o.id}" data-val="${esc(s)}">${s}</button>`).join("")}</div></div>
+    <div class="grid g2">
+      <div class="card"><h3>মাপ (${esc(o.item)})</h3>${Object.keys(o.m || {}).length ? measTable(o.item, o.m) : '<p class="muted">মাপ লেখা নেই।</p>'}</div>
+      <div class="card"><h3>পেমেন্ট</h3>
+        ${pays.length ? pays.map(t => `<div class="pay"><div><b>${money(t.amt)}</b><small class="muted" style="display:block">${esc(t.date)}</small></div><button class="ghost sm" data-delpay="${t.id}">মুছুন</button></div>`).join("") : '<p class="muted">এখনো কোনো পেমেন্ট নেই।</p>'}
+        ${o.due > 0 ? `<form class="form" data-kind="pay" data-id="${o.id}" style="margin-top:12px"><label>টাকা<input type="number" name="amt" min="1" required></label><label>তারিখ<input type="date" name="date" value="${today()}"></label><div class="form-actions"><button>পেমেন্ট যোগ করুন</button></div></form>` : ""}
+      </div>
+    </div>
+    <div class="quick"><button class="danger sm" data-delorder="${o.id}">অর্ডার মুছুন</button></div>`;
+}
+function vEForm(p){
+  EMP_PHOTO = null;
+  const e = p && p.id ? colOf("e").find(x => x.id == p.id) || {} : {};
+  return head(p && p.id ? "কর্মচারী সম্পাদনা" : "নতুন কর্মচারী") + `
+  <form class="card form" data-kind="e" data-id="${p && p.id || ""}">
+    <div class="full" style="display:flex;gap:14px;align-items:center;flex-wrap:wrap"><div id="empPrevBox" style="width:72px;height:72px;border-radius:50%;overflow:hidden;background:var(--panel2);border:2px solid var(--or);display:grid;place-items:center;font-weight:700;font-size:1.3rem;flex:0 0 auto">${e.photo ? `<img src="${e.photo}" alt="" style="width:100%;height:100%;object-fit:cover">` : esc(String(e.name || "?").charAt(0))}</div><label style="flex:1;min-width:200px">কর্মচারীর ছবি<input type="file" id="empPhoto" accept="image/*"></label></div>
+    <label>নাম<input name="name" required value="${esc(e.name)}"></label>
+    <label>মোবাইল<input name="mobile" value="${esc(e.mobile)}"></label>
+    <label class="full">বর্তমান ঠিকানা<input name="addr" value="${esc(e.addr)}"></label>
+    <label class="full">স্থায়ী ঠিকানা<input name="paddr" value="${esc(e.paddr)}"></label>
+    <label>জন্ম তারিখ<input type="date" name="dob" value="${esc(e.dob)}"></label>
+    <label>লিঙ্গ<select name="gender">${GENDER.map(g => `<option ${e.gender === g ? "selected" : ""}>${g}</option>`).join("")}</select></label>
+    <label>কাজের ধরন<select name="job">${JOBS.map(j => `<option ${e.job === j ? "selected" : ""}>${j}</option>`).join("")}</select></label>
+    <label>যোগদানের তারিখ<input type="date" name="join" value="${esc(e.join)}"></label>
+    <label>উত্তোলন তারিখ<input type="date" name="leave" value="${esc(e.leave)}"></label>
+    <label>বেতনের মাস<select name="month">${MONTHS.map(m => `<option ${e.month === m ? "selected" : ""}>${m}</option>`).join("")}</select></label>
+    <label>মূল বেতন (৳)<input type="number" min="0" name="basic" value="${e.basic || ""}"></label>
+    <label>অতিরিক্ত বেতন (৳)<input type="number" min="0" name="extra" value="${e.extra || ""}"></label>
+    <label>বোনাস (৳)<input type="number" min="0" name="bonus" value="${e.bonus || ""}"></label>
+    <label>মোট টাকা<input readonly name="total" value="${bn(e.total)}"></label>
+    <div class="form-actions">${p && p.id ? `<button type="button" class="danger sm" data-dele="${p.id}" style="margin-right:auto">কর্মচারী মুছুন</button>` : ""}<button type="button" class="sec" data-back>বাতিল</button><button>সেভ করুন</button></div>
+  </form>`;
+}
+function vCatalog(){
+  return head("ক্যাটালগ / মাপ") + Object.entries(CAT).map(([g, items]) => `
+    <div class="card"><h3>${g}</h3><div class="tiles">
+      ${items.map((i, idx) => `<button class="tile" data-go="oform" data-item="${esc(i)}"><span class="av" style="background:${COL[idx % COL.length]}">${esc(i.charAt(0))}</span><b>${esc(i)}</b><small>অর্ডার ও মাপ</small></button>`).join("")}
+    </div></div>`).join("");
+}
+function repData(t){
+  if (t === "c") return {title:"কাস্টমার তালিকা", head:["নাম","মোবাইল","ঠিকানা","সর্বশেষ অবস্থা"],
+    rows:DB.customers.map(c => { const l = DB.orders.filter(o => o.cust == c.id).sort((a,b) => b.id - a.id)[0]; return [c.name, c.mobile || "—", c.addr || "—", l ? l.status : "—"]; })};
+  if (t === "e") return {title:"কর্মচারী তালিকা", head:["নাম","মোবাইল","কাজ","যোগদান","মোট বেতন"],
+    rows:DB.employees.map(e => [e.name, e.mobile || "—", e.job || "—", e.join || "—", money(e.total)])};
+  if (t === "m") return {title:"মোবাইল নম্বর", head:["নাম","ধরন","মোবাইল"],
+    rows:[...DB.customers.map(c => [c.name, "কাস্টমার", c.mobile || "—"]), ...DB.employees.map(e => [e.name, "কর্মচারী", e.mobile || "—"])]};
+  if (t === "d") return {title:"বকেয়া তালিকা", head:["কাস্টমার","পণ্য","মোট","পরিশোধ","বকেয়া"],
+    rows:DB.orders.filter(o => o.due > 0).map(o => [cname(o.cust), o.item, money(o.total), money(o.paid), money(o.due)])};
+  if (t === "o") return {title:"অর্ডার তালিকা", head:["কাস্টমার","পণ্য","অর্ডার তারিখ","ডেলিভারি","মোট","অবস্থা"],
+    rows:DB.orders.map(o => [cname(o.cust), o.item, o.odate || "—", o.ddate || "—", money(o.total), o.status])};
+  const map = {};
+  DB.txs.forEach(x => { const m = String(x.date).slice(0,7); map[m] = map[m] || {i:0, e:0}; map[m][x.type === "income" ? "i" : "e"] += +x.amt || 0; });
+  return {title:"মাসিক লাভ-ক্ষতি", head:["মাস","আয়","ব্যয়","লাভ/ক্ষতি"],
+    rows:Object.keys(map).sort().reverse().map(m => [monthLabel(m), money(map[m].i), money(map[m].e), money(map[m].i - map[m].e)])};
+}
+function vReports(p){
+  const type = p || "c", d = repData(type);
+  LAST = {title:d.title, html:tbl(d.head, d.rows)};
+  return head("রিপোর্ট") + `<div class="chips">${REPS.map(([k,l]) => `<button class="chip ${k === type ? "on" : ""}" data-go="reports" data-type="${k}">${l}</button>`).join("")}</div>
+    <div class="card"><div class="page-h" style="margin:0 0 12px"><h3 style="margin:0">${esc(d.title)}</h3><button class="sec sm" data-printrep>প্রিন্ট</button></div>${tbl(d.head, d.rows)}</div>`;
+}
+function vAccounts(m){
+  const txs = monthTx(m).sort((a,b) => String(b.date).localeCompare(String(a.date)) || b.id - a.id);
+  const inc = sumTx("income", m), exp = sumTx("expense", m), pr = inc - exp;
+  const cats = {};
+  txs.forEach(t => { const k = t.type + "|" + t.cat; cats[k] = (cats[k] || 0) + (+t.amt || 0); });
+  const max = Math.max(1, ...Object.values(cats));
+  const bars = Object.entries(cats).sort((a,b) => b[1] - a[1]).map(([k,v]) => {
+    const [ty, ct] = k.split("|");
+    return `<div class="bar-row"><span>${ty === "income" ? "🟢" : "🔴"} ${esc(ct)}</span><div class="track"><i class="${ty}" style="width:${v / max * 100}%"></i></div><b>${money(v)}</b></div>`;
+  }).join("");
+  const wages = DB.employees.map(e => {
+    const paid = DB.txs.some(t => t.ref === "e" + e.id && t.month === m);
+    return `<div class="row" style="cursor:default">${av(e.name)}<div class="main"><b>${esc(e.name)}</b><small>${esc(e.job)} · বেতন ${money(e.total)}</small></div><div class="end">${paid ? '<span class="badge b-done">পরিশোধিত</span>' : `<button class="sm" data-pay="${e.id}" data-m="${m}">বেতন দিন</button>`}</div></div>`;
+  }).join("");
+  LAST = {title:"আয়-ব্যয়ের মাসিক হিসাব — " + monthLabel(m), html:
+    tbl(["বিবরণ","পরিমাণ"], [["মোট আয়", money(inc)], ["মোট ব্যয়", money(exp)], ["লাভ / ক্ষতি", money(pr)]]) +
+    tbl(["তারিখ","খাত","বিবরণ","ধরন","পরিমাণ"], txs.map(t => [t.date, t.cat, t.note || "—", t.type === "income" ? "আয়" : "ব্যয়", money(t.amt)]))};
+  return head("আয়-ব্যয়ের হিসাব", `<input type="month" id="accMonth" class="mon" value="${m}"><button class="sec sm" data-printrep>প্রিন্ট</button>`) + `
+    <div class="sumc">
+      <div class="sc inc"><small>মোট আয়</small><b>${money(inc)}</b></div>
+      <div class="sc exp"><small>মোট ব্যয়</small><b>${money(exp)}</b></div>
+      <div class="sc ${pr >= 0 ? "pos" : "neg"}"><small>লাভ / ক্ষতি</small><b>${money(pr)}</b></div>
+    </div>
+    <div class="card"><h3>খাতওয়ারি হিসাব</h3>${bars || '<p class="muted">এই মাসে কোনো লেনদেন নেই।</p>'}</div>
+    <div class="card"><h3>কর্মচারী বেতন — ${monthLabel(m)}</h3>${wages || '<p class="muted">কোনো কর্মচারী নেই।</p>'}</div>
+    <form class="card form" data-kind="tx">
+      <h3 class="full">নতুন লেনদেন</h3>
+      <label>ধরন<select name="type" id="txType"><option value="income">আয়</option><option value="expense">ব্যয়</option></select></label>
+      <label>খাত<select name="cat" id="txCat"></select></label>
+      <label>পরিমাণ (৳)<input type="number" min="1" name="amt" required></label>
+      <label>তারিখ<input type="date" name="date" value="${today()}"></label>
+      <label class="full">বিবরণ<input name="note" placeholder="যেমন: ৩০ গজ কালো কাপড়"></label>
+      <div class="form-actions"><button>যোগ করুন</button></div>
+    </form>
+    <div class="card"><h3>লেনদেনের খাতা</h3>${txs.length ? txs.map(t => `<div class="row" style="cursor:default"><div class="main"><b>${esc(t.cat)}</b><small>${esc(t.date)}${t.note ? " · " + esc(t.note) : ""}</small></div><div class="end ${t.type === "income" ? "amt-in" : "amt-out"}">${t.type === "income" ? "+" : "−"} ${money(t.amt)}</div><button class="ghost sm" data-deltx="${t.id}">মুছুন</button></div>`).join("") : '<p class="muted">এই মাসে কোনো লেনদেন নেই।</p>'}</div>`;
+}
+function vSettings(){
+  const s = DB.settings;
+  let cur = "navy"; try { cur = localStorage.getItem("tms_theme") || "navy"; } catch(e){}
+  return head("প্রভৃতি", "", true) + `
+    <form class="card form" data-kind="settings">
+      <h3 class="full">দোকানের তথ্য</h3>
+      <label>দোকানের নাম<input name="name" required value="${esc(s.name)}"></label>
+      <label>ঠিকানা<input name="addr" value="${esc(s.addr)}"></label>
+      <div class="form-actions"><button>সেভ করুন</button></div>
+    </form>
+    <div class="card"><h3>লোগো</h3>
+      <div class="crumb" style="flex-wrap:wrap">
+        <div class="logo" style="width:84px;height:84px">${s.logo ? `<img src="${s.logo}" alt="">` : DEFAULT_LOGO}</div>
+        <div style="display:grid;gap:8px;flex:1;min-width:200px">
+          <label>ছবি বেছে নিন<input type="file" id="logoFile" accept="image/*"></label>
+          <div><button class="sec sm" data-logoremove>লোগো মুছুন</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="card"><h3>থিম</h3><div class="chips">${THEMES.map(t => `<button class="chip ${t.id === cur ? "on" : ""}" data-theme="${t.id}">${t.name}</button>`).join("")}</div></div>
+    <div class="card"><h3>ব্যাকআপ ও পুনরুদ্ধার</h3>
+      <p class="muted">ক্লাউড চালু থাকলে তথ্য নিজে থেকেই সেভ হয়। নিচের ব্যাকআপ শুধু অতিরিক্ত নিরাপত্তার জন্য।</p>
+      <textarea id="backup" rows="4" placeholder="ব্যাকআপ এখানে আসবে"></textarea>
+      <div class="quick" style="margin-top:10px"><button class="sec sm" data-export>ব্যাকআপ দেখান</button><button class="sec sm" data-share>শেয়ার করুন</button><button class="sec sm" data-import>পুনরুদ্ধার</button><button class="sec sm" data-cloud>ক্লাউড থেকে আনুন</button></div>
+    </div>
+    <div class="card"><h3>বিপজ্জনক এলাকা</h3><button class="sec sm" data-lock>অ্যাপ লক করুন</button><button class="danger sm" data-clear>সব তথ্য মুছুন</button></div>`;
+}
+
+/* ---------- ফর্ম সেভ ---------- */
+function saveCust(f){
+  const fd = new FormData(f), name = String(fd.get("name") || "").trim();
+  if (!name) return toast("নাম লিখুন", "bad");
+  const data = {name, mobile:String(fd.get("mobile") || "").trim(), gender:fd.get("gender"), email:String(fd.get("email") || "").trim(), addr:String(fd.get("addr") || "").trim(), notes:String(fd.get("notes") || "").trim()};
+  let id = f.dataset.id;
+  if (id && cust(id)) Object.assign(cust(id), data); else { id = nid("c"); DB.customers.push(Object.assign({id}, data)); }
+  save(); toast("কাস্টমার সেভ হয়েছে", "ok"); go("cprofile", {id:+id}, "replace");
+}
+function saveOrder(f){
+  const fd = new FormData(f), cu = +fd.get("cust");
+  if (!cu) return toast("কাস্টমার নির্বাচন করুন", "bad");
+  const item = fd.get("item"), m = {};
+  (MEAS[item] || []).forEach((k,i) => { const v = String(fd.get("m" + i) || "").trim(); if (v) m[k] = v; });
+  const base = {cust:cu, item, odate:fd.get("odate") || today(), ddate:fd.get("ddate") || "", qty:+fd.get("qty") || 1, price:+fd.get("price") || 0, status:fd.get("status"), notes:String(fd.get("notes") || "").trim(), m};
+  let id = f.dataset.id;
+  if (id && ordr(id)) { const o = ordr(id); Object.assign(o, base); recalc(o); }
+  else {
+    const o = Object.assign({id:nid("o"), paid:0}, base); recalc(o); DB.orders.push(o); id = o.id;
+    const adv = +fd.get("adv") || 0; if (adv > 0) addPay(o, adv, base.odate);
+  }
+  save(); toast("অর্ডার সেভ হয়েছে", "ok"); go("odetail", {id:+id}, "replace");
+}
+function saveEmp(f){
+  const fd = new FormData(f), name = String(fd.get("name") || "").trim();
+  if (!name) return toast("নাম লিখুন", "bad");
+  const data = {name, addr:String(fd.get("addr") || "").trim(), paddr:String(fd.get("paddr") || "").trim(), mobile:String(fd.get("mobile") || "").trim(), dob:fd.get("dob") || "", gender:fd.get("gender"), job:fd.get("job"), join:fd.get("join") || "", leave:fd.get("leave") || "", month:fd.get("month"), basic:+fd.get("basic") || 0, extra:+fd.get("extra") || 0, bonus:+fd.get("bonus") || 0};
+  data.total = data.basic + data.extra + data.bonus;
+  if (EMP_PHOTO !== null) data.photo = EMP_PHOTO;
+  let id = f.dataset.id;
+  if (id && colOf("e").find(x => x.id == id)) Object.assign(colOf("e").find(x => x.id == id), data); else if (!id) { id = nid("e"); DB.employees.push(Object.assign({id}, data)); }
+  save(); toast("কর্মচারী সেভ হয়েছে", "ok"); go("employee", null, "replace");
+}
+function saveTx(f){
+  const fd = new FormData(f), amt = +fd.get("amt") || 0;
+  if (amt <= 0) return toast("সঠিক পরিমাণ লিখুন", "bad");
+  pushTx({type:fd.get("type"), cat:fd.get("cat"), amt, date:fd.get("date") || today(), note:String(fd.get("note") || "").trim()});
+  toast("লেনদেন যোগ হয়েছে", "ok"); render();
+}
+function addPayForm(f){
+  const o = ordr(f.dataset.id), amt = +new FormData(f).get("amt") || 0;
+  if (!o || amt <= 0) return toast("সঠিক পরিমাণ লিখুন", "bad");
+  addPay(o, amt, f.date.value || today()); save(); toast("পেমেন্ট যোগ হয়েছে", "ok"); render();
+}
+function saveSettings(f){
+  DB.settings.name = String(f.name.value || "").trim() || DB.settings.name;
+  DB.settings.addr = String(f.addr.value || "").trim();
+  save(); toast("সেভ হয়েছে", "ok"); render();
+}
+function handleLogo(file){
+  const url = URL.createObjectURL(file), img = new Image();
+  img.onload = () => {
+    // Crop the centre square so the logo fills the round frame exactly
+    const side = Math.min(img.width, img.height);
+    const sx = (img.width - side) / 2, sy = (img.height - side) / 2;
+    const c = document.createElement("canvas");
+    c.width = 256; c.height = 256;
+    c.getContext("2d").drawImage(img, sx, sy, side, side, 0, 0, 256, 256);
+    DB.settings.logo = c.toDataURL("image/png");
+    URL.revokeObjectURL(url); save(); render(); toast("লোগো সেভ হয়েছে", "ok");
+  };
+  img.onerror = () => toast("ছবিটি খোলা যায়নি", "bad");
+  img.src = url;
+}
+
+/* ---------- প্রিন্ট ---------- */
+function printDoc(title, body){
+  const s = DB.settings, r = document.getElementById("receipt");
+  r.innerHTML = `<div style="text-align:center">${s.logo ? `<img src="${s.logo}" style="width:72px;height:72px;object-fit:contain">` : ""}<h2 style="margin:6px 0">${esc(s.name)}</h2><div>${esc(s.addr)}</div><hr><h3>${esc(title)}</h3></div>${body}`;
+  document.body.classList.add("printing");
+  const off = () => document.body.classList.remove("printing");
+  window.onafterprint = off; setTimeout(off, 15000);
+  if (window.AndroidPrint) { off(); const st = '<style>body{font-family:sans-serif;color:#000;padding:20px}table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid #ccc;padding:6px;text-align:left;font-size:12px}</style>'; AndroidPrint.printHtml('<!DOCTYPE html><html><head><meta charset="utf-8">' + st + '</head><body>' + r.innerHTML + '</body></html>'); return; }
+  window.print();
+}
+function openReceipt(id){
+  const o = ordr(id); if (!o) return;
+  const meas = Object.keys(o.m || {}).length ? tbl(["মাপ", "ইঞ্চি"], Object.entries(o.m)) : "";
+  printDoc("অর্ডার রশিদ #" + o.id, tbl(["বিবরণ","তথ্য"], [["কাস্টমার", cname(o.cust)], ["পণ্য", o.item], ["অর্ডার তারিখ", o.odate || "—"], ["ডেলিভারি তারিখ", o.ddate || "—"], ["পরিমাণ", bn(o.qty)], ["মোট মূল্য", money(o.total)], ["পরিশোধ", money(o.paid)], ["বকেয়া", money(o.due)], ["নোটস", o.notes || "—"]]) + meas + '<p style="margin-top:40px">কাস্টমারের স্বাক্ষর: ______________</p>');
+}
+
+/* ---------- ইভেন্ট ---------- */
+document.addEventListener("click", async e => {
+  const t = e.target;
+  if (t.closest("[data-back]")) { if (DEPTH > 0) history.back(); else go("home", null, "replace"); return; }
+  const nav = t.closest("[data-go]");
+  if (nav) {
+    const d = nav.dataset; let p = null;
+    if (d.id) p = {id:+d.id}; else if (d.cust) p = {cust:+d.cust}; else if (d.item) p = {item:d.item}; else if (d.type) p = d.type; else if (d.month) p = d.month;
+    return go(d.go, p, true);
+  }
+  const chip = t.closest("[data-chip]"); if (chip) { LF.order = chip.dataset.chip; return render(); }
+  const st = t.closest("[data-status]");
+  if (st) { const o = ordr(st.dataset.status); if (o) { o.status = st.dataset.val; save(); render(); } return; }
+  const th = t.closest("[data-theme]"); if (th) { applyTheme(th.dataset.theme); if (CUR.v === "settings") render(); return; }
+  const dp = t.closest("[data-delpay]");
+  if (dp) { if (await ask("পেমেন্ট মুছবেন?", "এই পেমেন্টের টাকা অর্ডারের পরিশোধ থেকে বাদ যাবে।", "মুছুন", true)) { removeTx(dp.dataset.delpay); toast("পেমেন্ট মুছে গেছে"); render(); } return; }
+  const dt = t.closest("[data-deltx]");
+  if (dt) { if (await ask("লেনদেন মুছবেন?", "এটি খাতা থেকে মুছে যাবে।", "মুছুন", true)) { removeTx(dt.dataset.deltx); render(); } return; }
+  const dord = t.closest("[data-delorder]");
+  if (dord) {
+    const id = dord.dataset.delorder;
+    if (await ask("অর্ডার মুছবেন?", "এই অর্ডারের সব পেমেন্টের হিসাবও মুছে যাবে।", "মুছুন", true)) {
+      DB.orders = DB.orders.filter(o => o.id != id); DB.txs = DB.txs.filter(x => x.ref !== "o" + id); save();
+      toast("অর্ডার মুছে গেছে"); go("order", null, "replace");
+    }
+    return;
+  }
+  const dc = t.closest("[data-delc]");
+  if (dc) {
+    const id = dc.dataset.delc, n = DB.orders.filter(o => o.cust == id).length;
+    if (await ask("কাস্টমার মুছবেন?", n ? `এই কাস্টমারের ${bn(n)} টি অর্ডার আছে। কাস্টমার মুছে গেলে ওই অর্ডারে নাম আর দেখাবে না।` : "এটি স্থায়ীভাবে মুছে যাবে।", "মুছুন", true)) {
+      DB.customers = DB.customers.filter(c => c.id != id); save(); toast("কাস্টমার মুছে গেছে"); go("customer", null, "replace");
+    }
+    return;
+  }
+  const de = t.closest("[data-dele]");
+  if (de) {
+    if (await ask("কর্মচারী মুছবেন?", "এটি স্থায়ীভাবে মুছে যাবে।", "মুছুন", true)) {
+      const id = de.dataset.dele; DB.employees = DB.employees.filter(x => x.id != id); save(); toast("কর্মচারী মুছে গেছে"); go("employee", null, "replace");
+    }
+    return;
+  }
+  const pay = t.closest("[data-pay]");
+  if (pay) {
+    const emp = DB.employees.find(x => x.id == pay.dataset.pay);
+    if (emp) { pushTx({type:"expense", cat:"কর্মচারী বেতন", amt:emp.total, date:pay.dataset.m + "-01", note:emp.name, ref:"e" + emp.id, month:pay.dataset.m}); toast("বেতন পরিশোধ হয়েছে", "ok"); render(); }
+    return;
+  }
+  const rc = t.closest("[data-receipt]"); if (rc) return openReceipt(rc.dataset.receipt);
+  if (t.closest("[data-printrep]")) return printDoc(LAST.title, LAST.html);
+  if (t.closest("[data-export]")) { $("#backup").value = JSON.stringify(DB); return; }
+  if (t.closest("[data-import]")) {
+    try { const d = JSON.parse($("#backup").value); if (!d.customers) throw 0; DB = norm(d); save(); render(); toast("পুনরুদ্ধার সম্পন্ন", "ok"); }
+    catch(err) { toast("ব্যাকআপের ফরম্যাট সঠিক নয়", "bad"); }
+    return;
+  }
+  if (t.closest("[data-share]")) { if (window.AndroidStore) AndroidStore.share(JSON.stringify(DB)); else toast("শেয়ার শুধু অ্যাপে কাজ করে", "bad"); return; }
+  if (t.closest("[data-lock]")) return lockApp("অ্যাপ লক করা হয়েছে।");
+  if (t.closest("[data-cloud]")) return cloudRestore();
+  if (t.closest("[data-logoremove]")) { DB.settings.logo = ""; save(); render(); return; }
+  if (t.closest("[data-clear]")) {
+    if (await ask("সব তথ্য মুছবেন?", "কাস্টমার, অর্ডার, কর্মচারী ও হিসাব সব মুছে যাবে। ফিরিয়ে আনা যাবে না।", "সব মুছুন", true)) {
+      DB = norm({settings:DB.settings}); save(); toast("সব তথ্য মুছে গেছে"); go("home", null, "replace");
+    }
+    return;
+  }
+});
+document.addEventListener("input", e => {
+  const tg = e.target;
+  if (tg.dataset && tg.dataset.q) { LQ[tg.dataset.q] = tg.value; const b = $("#listBody"); if (b) b.innerHTML = listRows(tg.dataset.q); return; }
+  const f = tg.form; if (!f) return;
+  if (f.dataset.kind === "o") $("#oTotal").value = bn((+f.qty.value || 0) * (+f.price.value || 0));
+  if (f.dataset.kind === "e") f.total.value = bn((+f.basic.value || 0) + (+f.extra.value || 0) + (+f.bonus.value || 0));
+});
+document.addEventListener("change", e => {
+  const tg = e.target;
+  if (tg.id === "oItem") { $("#measBox").innerHTML = measFields(tg.value, {}); $("#mTitle2").textContent = tg.value; return; }
+  if (tg.id === "txType") return fillCats();
+  if (tg.id === "accMonth") { if (tg.value) go("accounts", tg.value, "replace"); return; }
+  if (tg.id === "logoFile" && tg.files[0]) handleLogo(tg.files[0]);
+  if (tg.id === "empPhoto" && tg.files[0]) handleEmpPhoto(tg.files[0]);
+});
+document.addEventListener("submit", e => {
+  const f = e.target; if (!f.dataset || !f.dataset.kind) return;
+  e.preventDefault();
+  const k = f.dataset.kind;
+  if (k === "c") saveCust(f); else if (k === "o") saveOrder(f); else if (k === "e") saveEmp(f);
+  else if (k === "pay") addPayForm(f); else if (k === "tx") saveTx(f); else if (k === "settings") saveSettings(f);
+});
+window.addEventListener("popstate", e => {
+  const pn = $("#themePanel");
+  if (pn) pn.hidden = true;
+  if (!$("#modal").hidden && modalDone) modalDone(false);
+  const s = e.state || {v:"home", p:null};
+  DEPTH = Math.max(0, DEPTH - 1);
+  CUR = {v:s.v, p:s.p}; render(); window.scrollTo(0, 0);
+});
+
+/* ---------- থিম ---------- */
+function applyTheme(id){
+  const t = THEMES.find(x => x.id === id) || THEMES[0];
+  Object.entries(t.v).forEach(([k,v]) => document.documentElement.style.setProperty(k, v));
+  const pn = $("#themePanel");
+  if (pn) pn.querySelectorAll(".tp-o").forEach(b => b.classList.toggle("on", b.dataset.theme === t.id));
+  try { localStorage.setItem("tms_theme", t.id); } catch(e){}
+}
+function initTheme(){
+  let saved = "navy"; try { saved = localStorage.getItem("tms_theme") || "navy"; } catch(e){}
+  const fab = document.createElement("button");
+  fab.className = "fab"; fab.title = "থিম"; fab.setAttribute("aria-label", "থিম বেছে নিন");
+  fab.style.background = "linear-gradient(135deg,var(--or),var(--or2))";
+  fab.innerHTML = svg('<path d="M12 3a9 9 0 0 0 0 18c1.2 0 1.8-.9 1.8-1.8 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-1 .8-1.8 1.8-1.8H17a4 4 0 0 0 4-4C21 6.5 17 3 12 3z"/><circle cx="7.5" cy="11" r="1.2"/><circle cx="10" cy="7.5" r="1.2"/><circle cx="14.5" cy="7.5" r="1.2"/>').replace("<svg ", '<svg width="24" height="24" style="color:#fff" ');
+  const panel = document.createElement("div");
+  panel.id = "themePanel"; panel.className = "tpanel"; panel.hidden = true;
+  panel.innerHTML = '<div class="tp-t">থিম বেছে নিন</div>' + THEMES.map(t => `<button class="tp-o" data-theme="${t.id}"><span class="sw" style="background:linear-gradient(135deg,${t.a} 50%,${t.b} 50%)"></span>${t.name}</button>`).join("");
+  document.body.append(fab, panel);
+  fab.addEventListener("click", () => {
+    panel.hidden = !panel.hidden;
+
+  });
+  document.addEventListener("click", e => { if (!panel.hidden && !panel.contains(e.target) && !fab.contains(e.target)) panel.hidden = true; });
+  applyTheme(saved);
+}
+
+let _bkTimer = null;
+function localBackup(){
+  if (!window.AndroidStore) return;
+  clearTimeout(_bkTimer);
+  _bkTimer = setTimeout(() => { try { AndroidStore.saveBackup(JSON.stringify(DB)); } catch(e){} }, 800);
+}
+function autoRestore(){
+  if (!window.AndroidStore) return;
+  if (DB.customers.length || DB.orders.length || DB.employees.length || DB.txs.length) return;
+  let txt = ""; try { txt = AndroidStore.readBackup() || ""; } catch(e){}
+  if (!txt) return;
+  try {
+    const d = JSON.parse(txt);
+    if (d && d.customers) { DB = norm(d); localStorage.setItem("tms_db", JSON.stringify(DB)); toast("আগের ব্যাকআপ থেকে তথ্য ফিরিয়ে আনা হয়েছে", "ok"); }
+  } catch(e){}
+}
+window.androidBack = () => {
+  const pn = $("#themePanel");
+  if (pn && !pn.hidden) { pn.hidden = true; return true; }
+  if (!$("#modal").hidden && modalDone) { modalDone(false); return true; }
+  if (DEPTH > 0) { history.back(); return true; }
+  if (CUR.v !== "home") { go("home", null, "replace"); return true; }
+  return false;
+};
+/* ---------- শুরু ---------- */
+initTheme();
+try { history.replaceState({v:"home", p:null}, ""); } catch(e){}
+render();
+startApp();
+</script>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js');});}</script>
+</body>
+</html>
